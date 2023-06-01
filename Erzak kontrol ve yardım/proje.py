@@ -1,3 +1,6 @@
+import pandas as pd
+
+
 kullanicilar = [
     {"kullanici_adi": "admin", "sifre": "admin", "yetki": "admin"},
     {"kullanici_adi": "görevli1", "sifre": "123456", "yetki": "Görevli1"},
@@ -74,11 +77,15 @@ while True:
     elif secim ==2:
         ad_soyad=input("Adınız Soyadınız:")
         konum= input("Bulunduğunuz yerin adı ve adresi:")
-        
+        dt = pd.read_csv("Erzak.csv")
+        df = pd.read_csv("Erzakyardım.csv")  # Excel dosyasını okuyun
+       # Doğru sütun adını kullanarak filtreleme yapın
+        df_filtered = df[df['adet'] > 0]  # Doğru sütun adını buraya yazın
+        print(dt,df_filtered)
+                        
     elif secim ==3:
         print("Çıkış yapılıyor...")
         break
-    
     else:
         print("Geçersiz işlem seçimi.Lütfen tekrar deneyin.")
         
